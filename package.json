@@ -57,8 +57,12 @@
             "tailwindcss": "^4.1.18",
             "vite": "^6.3.5"
       },
+      "engines": {
+            "node": ">=18.0.0"
+      },
       "scripts": {
             "dev": "vite",
-            "build": "vite build"
+            "build": "vite build",
+            "preview": "vite preview"
       }
 }
