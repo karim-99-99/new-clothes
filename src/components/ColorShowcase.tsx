@@ -72,7 +72,7 @@ export function ColorShowcase() {
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black pt-40 pb-20 overflow-hidden mt-8">
+    <div ref={containerRef} className="min-h-screen bg-black pt-40 pb-20 overflow-hidden mt-8 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -233,35 +233,35 @@ export function ColorShowcase() {
 
           {/* Enhanced floating particles */}
           <div className="absolute inset-0 pointer-events-none">
-            {colors.map((color) => (
+            {colors.map((color, colorIndex) => (
               <motion.div
-                key={`color-particle-${color.id}`}
+                key={`color-particle-${color.id}-${colorIndex}`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ 
                   opacity: [0, 0.4, 0],
                   scale: [0, 1, 0],
-                  x: [0, Math.sin(colors.indexOf(color) * 2) * 50, 0],
-                  y: [0, Math.cos(colors.indexOf(color) * 2) * 50, 0],
+                  x: [0, Math.sin(colorIndex * 2) * 50, 0],
+                  y: [0, Math.cos(colorIndex * 2) * 50, 0],
                   rotate: [0, 360]
                 }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
-                  delay: colors.indexOf(color) * 0.3,
+                  delay: colorIndex * 0.3,
                   ease: "easeInOut"
                 }}
                 className={`absolute w-3 h-3 bg-gradient-to-br ${color.gradient} rounded-full blur-sm`}
                 style={{
-                  top: `${15 + (colors.indexOf(color) % 4) * 20}%`,
-                  left: `${5 + (colors.indexOf(color) % 5) * 18}%`,
+                  top: `${15 + (colorIndex % 4) * 20}%`,
+                  left: `${5 + (colorIndex % 5) * 18}%`,
                 }}
               />
             ))}
             
             {/* Additional micro particles for current color */}
-            {[...Array(8)].map((_, i) => (
+            {Array.from({ length: 8 }, (_, i) => (
               <motion.div
-                key={`particle-${colors[selectedColor].id}-${i}`}
+                key={`micro-particle-${colors[selectedColor].id}-${i}`}
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ 
                   opacity: [0, 0.3, 0],

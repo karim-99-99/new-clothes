@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { products } from "../data/products";
 import { Button } from "../components/ui/button";
 import { useCart } from "../context/CartContext";
+import { calculateDiscount, formatPrice, getProductDescription } from "../utils/productUtils";
+import { Toast } from "../components/ui/Toast";
 
 export const ProductDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,6 +16,9 @@ export const ProductDetail = () => {
   const [selectedSize, setSelectedSize] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
   const [selectedImageIndex, setSelectedImageIndex] = useState<number>(0);
+  const [toastMessage, setToastMessage] = useState<string>("");
+  const [toastVisible, setToastVisible] = useState<boolean>(false);
+  const [toastType, setToastType] = useState<"success" | "error" | "info">("success");
 
   if (!product) {
     return (
@@ -27,11 +32,9 @@ export const ProductDetail = () => {
   }
 
   const availableSizes = product.sizes || ["XS", "S", "M", "L", "XL", "XXL"];
-  const description = product.description || 
-    `Premium quality ${product.name.toLowerCase()}. Available in multiple colors. Perfect for everyday wear with exceptional comfort and style.`;
-
+  const description = getProductDescription(product);
   const discount = product.originalPrice 
-    ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+    ? calculateDiscount(product.originalPrice, product.price)
     : 0;
 
   // Get images for selected color or use default
@@ -55,9 +58,15 @@ export const ProductDetail = () => {
     setSelectedImageIndex(0); // Reset to first image when color changes
   };
 
+  const showToast = (message: string, type: "success" | "error" | "info" = "success") => {
+    setToastMessage(message);
+    setToastType(type);
+    setToastVisible(true);
+  };
+
   const handleAddToCart = () => {
     if (!selectedSize) {
-      alert("Please select a size");
+      showToast("Please select a size before adding to cart", "error");
       return;
     }
     // Use the currently displayed image (what user sees) or fallback to product image
@@ -72,11 +81,20 @@ export const ProductDetail = () => {
       size: selectedSize,
       quantity: quantity,
     });
-    alert(`Added to cart: ${product.name} - Size: ${selectedSize} - Color: ${selectedColor} - Quantity: ${quantity}`);
+    showToast(
+      `Added to cart: ${product.name} (${selectedSize}, ${quantity}x)`,
+      "success"
+    );
   };
 
   return (
     <div className="min-h-screen bg-[#2a2a2a] pt-40 pb-20">
+      <Toast
+        message={toastMessage}
+        isVisible={toastVisible}
+        onClose={() => setToastVisible(false)}
+        type={toastType}
+      />
       <div className="max-w-7xl mx-auto px-6">
         {/* Back Button */}
         <button
@@ -154,11 +172,11 @@ export const ProductDetail = () => {
               {/* Price */}
               <div className="flex items-center gap-4 mb-6">
                 <span className="text-white font-bold text-3xl">
-                  CHF {product.price.toFixed(2)}
+                  {formatPrice(product.price)}
                 </span>
                 {product.originalPrice && (
                   <span className="text-gray-400 line-through text-xl">
-                    CHF {product.originalPrice.toFixed(2)}
+                    {formatPrice(product.originalPrice)}
                   </span>
                 )}
               </div>

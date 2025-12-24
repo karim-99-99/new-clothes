@@ -16,7 +16,7 @@ export const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 py-4">
         {/* Top banner */}
-        <div className="text-center text-white/60 text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
+        <div className="hidden md:block text-center text-white/60 text-xs uppercase tracking-wider mb-4 border-b border-white/10 pb-3">
           <span className="mr-8">Free shipping on orders over $100 - Shop Now</span>
           <span>New customers save 10% with code WELCOME10</span>
         </div>
@@ -29,6 +29,7 @@ export const Navigation = () => {
             </span>
           </Link>
           
+          {/* Navigation Links - Hidden on phone, visible on desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <Link 
               to="/" 
@@ -54,23 +55,6 @@ export const Navigation = () => {
             >
               Sale
             </Link>
-            <Link 
-              to="/cart" 
-              className={`relative transition-colors duration-300 text-sm uppercase tracking-wider ${
-                location.pathname === "/cart" ? "text-white" : "text-white/70 hover:text-white"
-              }`}
-            >
-              <div className="flex items-center gap-2">
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                </svg>
-                {cartCount > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-white text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
-                    {cartCount}
-                  </span>
-                )}
-              </div>
-            </Link>
             <Link to="/shop">
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -81,6 +65,25 @@ export const Navigation = () => {
               </motion.button>
             </Link>
           </div>
+
+          {/* Cart Icon - Visible on all screens */}
+          <Link 
+            to="/cart" 
+            className={`relative transition-colors duration-300 ${
+              location.pathname === "/cart" ? "text-white" : "text-white/70 hover:text-white"
+            }`}
+          >
+            <div className="flex items-center gap-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-white text-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                  {cartCount}
+                </span>
+              )}
+            </div>
+          </Link>
         </div>
       </div>
     </motion.nav>

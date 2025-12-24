@@ -1,0 +1,3 @@
+export { useProductNavigation } from "./useProductNavigation";
+
+
