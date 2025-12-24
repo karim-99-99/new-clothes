@@ -22,7 +22,7 @@ export function ColorShowcase() {
       accent: "bg-white",
       description: "Classic white for a fresh, clean look",
       filter: "",
-      image: "https://images.unsplash.com/photo-1692003509966-80ca67c85068?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMHQtc2hpcnQlMjBtaW5pbWFsfGVufDF8fHx8MTc2NjUxNDk3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     },
     {
       id: "off-white",
@@ -31,7 +31,7 @@ export function ColorShowcase() {
       accent: "bg-slate-50",
       description: "Warm off-white with subtle elegance",
       filter: "brightness(0.98) sepia(0.05)",
-      image: "https://images.unsplash.com/photo-1692003509966-80ca67c85068?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMHQtc2hpcnQlMjBtaW5pbWFsfGVufDF8fHx8MTc2NjUxNDk3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     },
     {
       id: "cloud-gray",
@@ -40,7 +40,7 @@ export function ColorShowcase() {
       accent: "bg-gray-100",
       description: "Soft gray for sophisticated casual wear",
       filter: "grayscale(0.3) brightness(1.05)",
-      image: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmF5JTIwdC1zaGlydCUyMG1pbmltYWx8ZW58MXx8fHwxNzY2NDE1MzUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     },
     {
       id: "dove-gray",
@@ -49,7 +49,7 @@ export function ColorShowcase() {
       accent: "bg-gray-300",
       description: "Medium gray for versatile styling",
       filter: "grayscale(0.5) brightness(0.95)",
-      image: "https://images.unsplash.com/photo-1564584217132-2271feaeb3c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmF5JTIwdC1zaGlydCUyMG1pbmltYWx8ZW58MXx8fHwxNzY2NDE1MzUyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     },
     {
       id: "charcoal",
@@ -58,7 +58,7 @@ export function ColorShowcase() {
       accent: "bg-gray-600",
       description: "Deep charcoal for urban sophistication",
       filter: "grayscale(0.8) brightness(0.75)",
-      image: "https://images.unsplash.com/photo-1604136172384-b2e9c43271ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMHRyb3VzZXJzJTIwcGFudHN8ZW58MXx8fHwxNzY2NDQ4Njg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     },
     {
       id: "jet-black",
@@ -67,12 +67,12 @@ export function ColorShowcase() {
       accent: "bg-gray-900",
       description: "Timeless black for ultimate elegance",
       filter: "grayscale(1) brightness(0.6)",
-      image: "https://images.unsplash.com/photo-1604136172384-b2e9c43271ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMHRyb3VzZXJzJTIwcGFudHN8ZW58MXx8fHwxNzY2NDQ4Njg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+      image: "https://images.unsplash.com/photo-1503341504253-dff4815485f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
     }
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black py-20 overflow-hidden">
+    <div ref={containerRef} className="min-h-screen bg-black pt-40 pb-20 overflow-hidden mt-8">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -82,14 +82,14 @@ export function ColorShowcase() {
           className="text-center mb-20"
         >
           <h2 className="text-5xl md:text-7xl text-white mb-6">
-            <span className="text-white">Your</span>
+            <span className="text-white">Express</span>
             <br />
             <span className="bg-gradient-to-r from-slate-100 via-white to-slate-100 bg-clip-text text-transparent">
-              Signature Style
+              Your Style
             </span>
           </h2>
           <p className="text-white/70 text-xl max-w-3xl mx-auto">
-            Choose from our curated spectrum of colors, from bright whites to deep blacks, each crafted to match your unique style
+            Discover our wide range of colors, from classic neutrals to bold statements. Each shade is carefully selected to help you express your unique personality
           </p>
         </motion.div>
 

@@ -2521,3 +2521,13 @@ html {
     transform: scale(2);
   }
 }
+
+/* Custom scrollbar hide utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

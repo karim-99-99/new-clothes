@@ -1,6 +1,5 @@
-"use client";
-
 import { motion } from "motion/react";
+import { Link } from "react-router-dom";
 
 export function Categories() {
   const categories = [
@@ -8,118 +7,134 @@ export function Categories() {
       id: "new-arrivals",
       title: "New Arrivals",
       subtitle: "SHOP NOW",
-      image: "https://images.unsplash.com/photo-1604272490759-7c465473958a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWlnZSUyMGhvb2RpZSUyMHN0cmVldHdlYXJ8ZW58MXx8fHwxNzY2NTE3MjAxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      gradient: "from-amber-500/20 to-orange-600/20"
+      image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     },
     {
       id: "best-selling",
       title: "Best Selling",
-      subtitle: "NOW",
-      image: "https://images.unsplash.com/photo-1745825219087-802850857308?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxob29kaWUlMjBmYXNoaW9uJTIwbWluaW1hbHxlbnwxfHx8fDE3NjY1MTcyMDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      gradient: "from-gray-800/30 to-black/40"
+      subtitle: "SHOP NOW",
+      image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     },
     {
       id: "hoodies",
       title: "Hoodies",
       subtitle: "SHOP NOW",
-      image: "https://images.unsplash.com/photo-1604272490759-7c465473958a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWlnZSUyMGhvb2RpZSUyMHN0cmVldHdlYXJ8ZW58MXx8fHwxNzY2NTE3MjAxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      gradient: "from-stone-500/20 to-amber-600/20"
+      image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     },
     {
       id: "joggers",
       title: "Joggers",
-      subtitle: "NOW",
-      image: "https://images.unsplash.com/photo-1669159423685-4fa4e23faaad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHJlZXR3ZWFyJTIwam9nZ2VycyUyMHBhbnRzfGVufDF8fHx8MTc2NjUxNzA5OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      gradient: "from-green-700/20 to-emerald-600/20"
+      subtitle: "SHOP NOW",
+      image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     }
   ];
 
+  const bannerTexts = [
+    "New collection available",
+    "Limited time offers",
+    "Premium quality"
+  ];
+
+  const bannerIcons = ["📷", "👑", "🔔"];
+
   return (
-    <div className="min-h-screen bg-black py-20">
-      <div className="max-w-7xl mx-auto px-6">
+    <div className="min-h-screen bg-black pt-40 pb-20 mt-8">
+      {/* Banner Section */}
+      <div className="overflow-hidden bg-black border-b border-white/10">
+        <div className="flex animate-scroll whitespace-nowrap">
+          {[...Array(3)].map((_, i) => (
+            <div key={i} className="flex items-center gap-8 px-8">
+              {bannerTexts.map((text, idx) => (
+                <div key={idx} className="flex items-center gap-4 text-white text-sm md:text-base font-medium">
+                  <span>{text}</span>
+                  <span className="text-xl">{bannerIcons[idx % bannerIcons.length]}</span>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 pt-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
           <p className="text-white/60 text-sm tracking-[0.3em] uppercase mb-4">
-            The Essentials
+            Explore Our Collection
           </p>
           <h2 className="text-4xl md:text-6xl text-white">
-            Shop by Category
+            Browse Categories
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((category, index) => (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -8 }}
-              className="group relative overflow-hidden bg-gray-900 rounded-none cursor-pointer"
-            >
-              {/* Image */}
-              <div className="relative h-[500px] overflow-hidden">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.6 }}
-                  src={category.image}
-                  alt={category.title}
-                  className="w-full h-full object-cover"
-                />
-                
-                {/* Gradient overlay */}
-                <div className={`absolute inset-0 bg-gradient-to-t ${category.gradient} opacity-60 group-hover:opacity-40 transition-opacity duration-300`} />
-                
-                {/* Animated border effect */}
-                <motion.div
-                  initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: 1 }}
-                  transition={{ delay: index * 0.1 + 0.3, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="absolute bottom-0 left-0 right-0 h-1 bg-white origin-left"
-                />
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((category, index) => {
+            const getLink = () => {
+              if (category.id === "new-arrivals") return "/new-arrivals";
+              if (category.id === "best-selling") return "/best-selling";
+              if (category.id === "hoodies") return "/hoodies";
+              if (category.id === "joggers") return "/joggers";
+              return "#";
+            };
 
-              {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/90 to-transparent">
-                <motion.p
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.4, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-white/60 text-xs tracking-[0.2em] uppercase mb-2"
-                >
-                  {category.subtitle}
-                </motion.p>
-                <motion.h3
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 + 0.5, duration: 0.6 }}
-                  viewport={{ once: true }}
-                  className="text-white text-2xl group-hover:text-slate-200 transition-colors duration-300"
-                >
-                  {category.title}
-                </motion.h3>
-
-                {/* Hover arrow indicator */}
+            return (
+              <Link key={category.id} to={getLink()}>
                 <motion.div
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1, x: 5 }}
-                  className="absolute right-6 bottom-6 text-white text-2xl opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1, duration: 0.6 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                  className="group relative overflow-hidden bg-[#f5f5f5] rounded-lg cursor-pointer shadow-lg"
                 >
-                  →
+                  {/* Image */}
+                  <div className="relative h-[400px] overflow-hidden rounded-t-lg">
+                    <motion.img
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ duration: 0.6 }}
+                      src={category.image}
+                      alt={category.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+
+                  {/* Content with Title and Button */}
+                  <div className="p-6 bg-[#f5f5f5]">
+                    <h3 className="text-white text-2xl md:text-3xl px-4 font-bold mb-4 group-hover:text-gray-700 transition-colors duration-300">
+                      {category.title}
+                    </h3>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="bg-black text-white  py-3 rounded-lg font-semibold text-sm uppercase tracking-wider hover:bg-gray-800 transition-colors duration-300 w-full"
+                    >
+                      {/* {category.subtitle} */}
+                    </motion.button>
+                  </div>
                 </motion.div>
-              </div>
-            </motion.div>
-          ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
+
+      <style>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+        }
+      `}</style>
     </div>
   );
 }

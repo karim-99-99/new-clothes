@@ -15,8 +15,8 @@ export function Lifestyle() {
   const x2 = useTransform(scrollYProgress, [0, 1], ["10%", "-5%"]);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <div ref={containerRef} className="min-h-screen bg-black pt-40 pb-20 overflow-hidden mt-8">
+      <div className="max-w-7xl mx-auto px-6" style={{ backgroundColor: 'var(--color-gray-900)', borderWidth: '1px', borderColor: 'rgba(13, 13, 13, 1)', borderImage: 'linear-gradient(90deg, rgba(13, 13, 13, 1) 74%, rgba(255, 255, 255, 1) 100%) 1' }}>
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Images section with 3D effects */}
           <div className="relative">
@@ -31,7 +31,7 @@ export function Lifestyle() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1602107545989-576b14346164?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmYXNoaW9uJTIwbGlmZXN0eWxlJTIwdXJiYW58ZW58MXx8fHwxNzY2NDg4MDU4fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1080&h=800&fit=crop"
                   alt="Lifestyle"
                   className="w-full h-[400px] object-cover"
                 />
@@ -53,7 +53,7 @@ export function Lifestyle() {
             >
               <div className="relative rounded-3xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.unsplash.com/photo-1604272490759-7c465473958a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxiZWlnZSUyMGhvb2RpZSUyMHN0cmVldHdlYXJ8ZW58MXx8fHwxNzY2NTE3MjAxfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1669159423685-4fa4e23faaad?w=1080&h=800&fit=crop"
                   alt="Lifestyle"
                   className="w-full h-[400px] object-cover"
                 />
@@ -105,7 +105,7 @@ export function Lifestyle() {
               viewport={{ once: true }}
               className="text-white/60 text-sm tracking-[0.3em] uppercase mb-6"
             >
-              Everyday essentials
+              Daily comfort
             </motion.p>
 
             <motion.h2
@@ -115,11 +115,11 @@ export function Lifestyle() {
               viewport={{ once: true }}
               className="text-4xl md:text-6xl text-white mb-8 leading-tight"
             >
-              Move with{" "}
+              Style for{" "}
               <span className="bg-gradient-to-r from-slate-100 to-white bg-clip-text text-transparent italic">
-                Luxe
+                Every Day
               </span>{" "}
-              forever
+              Life
             </motion.h2>
 
             <motion.p

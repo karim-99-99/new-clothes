@@ -1,7 +1,6 @@
-"use client";
-
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 export function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -14,7 +13,7 @@ export function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8, 1], [1, 0.8, 0.6]);
 
   return (
-    <div ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
+    <div ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-40">
       {/* Background image with parallax */}
       <motion.div
         style={{ y }}
@@ -22,7 +21,7 @@ export function Hero() {
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black z-10" />
         <img
-          src="https://images.unsplash.com/photo-1600871149961-4eb8f8058ed5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzdHJlZXR3ZWFyJTIwbW9kZWwlMjBibGFja3xlbnwxfHx8fDE3NjY1MTcyMDB8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
           alt="Streetwear Fashion"
           className="w-full h-full object-cover"
         />
@@ -70,7 +69,7 @@ export function Hero() {
           className="mb-6"
         >
           <span className="text-white/70 text-sm md:text-base tracking-[0.3em] uppercase">
-            Elevated Essentials
+            Premium Fashion
           </span>
         </motion.div>
 
@@ -81,10 +80,10 @@ export function Hero() {
           className="text-5xl md:text-8xl text-white mb-6 tracking-tight"
         >
           <span className="bg-gradient-to-r from-slate-100 via-white to-slate-100 bg-clip-text text-transparent">
-            SILENCE THE
+            STYLE YOUR
           </span>
           <br />
-          <span className="text-white">NOISE</span>
+          <span className="text-white">LIFESTYLE</span>
         </motion.h1>
         
         <motion.p
@@ -93,7 +92,7 @@ export function Hero() {
           transition={{ delay: 1.2, duration: 0.8 }}
           className="text-white/80 text-lg md:text-xl mb-10 max-w-2xl mx-auto"
         >
-          Elevated streetwear essentials designed for the modern narrative. Luxury fabrication meets urban aesthetic.
+          Discover premium quality clothing that combines comfort with cutting-edge design. Express yourself with our exclusive collection.
         </motion.p>
         
         <motion.div
@@ -102,21 +101,25 @@ export function Hero() {
           transition={{ delay: 1.4, duration: 0.8 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,255,255,0.1)" }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-white text-black px-10 py-4 rounded-none text-base uppercase tracking-wider transition-all duration-300 border-2 border-white"
-          >
-            Shop New Arrival
-          </motion.button>
+          <Link to="/new-arrivals">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(255,255,255,0.1)" }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-black px-10 py-4 rounded-none text-base uppercase tracking-wider transition-all duration-300 border-2 border-white"
+            >
+              Shop New Arrival
+            </motion.button>
+          </Link>
           
-          <motion.button
-            whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
-            whileTap={{ scale: 0.95 }}
-            className="border-2 border-white text-white px-10 py-4 rounded-none text-base uppercase tracking-wider transition-all duration-300"
-          >
-            Shop Sale
-          </motion.button>
+          <Link to="/sale">
+            <motion.button
+              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+              whileTap={{ scale: 0.95 }}
+              className="border-2 border-white text-white px-10 py-4 rounded-none text-base uppercase tracking-wider transition-all duration-300"
+            >
+              Shop Sale
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
 

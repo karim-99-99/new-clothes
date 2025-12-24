@@ -36,8 +36,8 @@ export function Features() {
   ];
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-black py-20 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6">
+    <div ref={containerRef} className="min-h-screen bg-black pt-40 pb-20 overflow-hidden mt-8">
+      <div className="max-w-7xl mx-auto px-6" style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)', color: 'rgba(0, 0, 0, 1)' }}>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -47,13 +47,13 @@ export function Features() {
         >
           <h2 className="text-5xl md:text-7xl text-white mb-6">
             <span className="bg-gradient-to-r from-slate-100 to-white bg-clip-text text-transparent">
-              Crafted
+              Quality
             </span>
             <br />
-            <span className="text-white">Excellence</span>
+            <span className="text-white">Crafted</span>
           </h2>
           <p className="text-white/70 text-xl max-w-3xl mx-auto">
-            Discover the meticulous attention to detail that makes every piece a masterpiece of fashion and comfort
+            Every piece is carefully designed with precision and attention to detail, ensuring the highest standards of quality and style
           </p>
         </motion.div>
 
@@ -78,7 +78,7 @@ export function Features() {
                 style={{ transformStyle: "preserve-3d" }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1604136172384-b2e9c43271ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibGFjayUyMHRyb3VzZXJzJTIwcGFudHN8ZW58MXx8fHwxNzY2NDQ4Njg3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=1080&h=1080&fit=crop"
                   alt="Premium Black Trousers"
                   className="w-[28rem] h-[28rem] object-contain"
                   style={{

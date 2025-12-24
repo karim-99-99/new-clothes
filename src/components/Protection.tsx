@@ -17,7 +17,7 @@ export function Protection() {
   const hangerOpacity = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0, 0, 1, 1]);
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-slate-800 py-20 flex items-center">
+    <div ref={containerRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-slate-800 pt-40 pb-20 flex items-center mt-8" style={{ borderWidth: '1px', borderColor: 'rgba(0, 0, 0, 1)', borderImage: 'radial-gradient(circle at 50% 50%, rgba(65, 121, 129, 1) 55%, rgba(110, 7, 7, 1) 100%) 1' }}>
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text content */}
@@ -28,16 +28,15 @@ export function Protection() {
             viewport={{ once: true }}
           >
             <h2 className="text-5xl md:text-7xl text-white mb-8">
-              <span className="text-white">Premium</span>
+              <span className="text-white">Long Lasting</span>
               <br />
               <span className="bg-gradient-to-r from-slate-100 to-white bg-clip-text text-transparent">
-                Care
+                Quality
               </span>
             </h2>
             <p className="text-white/70 text-xl mb-8 leading-relaxed">
-              Your wardrobe deserves the ultimate care. Our clothing comes with premium 
-              care instructions and storage solutions that keep your pieces fresh and 
-              looking brand new for years to come.
+              Built to last. Our premium materials and construction ensure your clothing stays 
+              fresh and maintains its quality for years, with easy care instructions included.
             </p>
             
             <div className="space-y-6">
@@ -94,7 +93,7 @@ export function Protection() {
                   style={{ transformStyle: "preserve-3d" }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1626160200951-fc4b4f8d4de9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aGl0ZSUyMGNsb3RoaW5nJTIwZmFzaGlvbnxlbnwxfHx8fDE3NjY1MTQ5NzR8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                     alt="Premium Clothing"
                     className="w-[22rem] h-[22rem] object-contain"
                     style={{
@@ -116,7 +115,7 @@ export function Protection() {
                 className="absolute inset-0"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1592545448088-8b116b610724?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjbG90aGluZyUyMGhhbmdlciUyMG1pbmltYWx8ZW58MXx8fHwxNzY2NTE0OTc1fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                  src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
                   alt="Premium Storage"
                   className="w-80 h-80 object-contain drop-shadow-2xl"
                 />
